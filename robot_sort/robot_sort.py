@@ -99,9 +99,9 @@ class SortingRobot:
     def is_right_smaller(self):
         self.swap_item()
         self.move_right()
-        compare_result = self.compare_item()
+        # compare_result = self.compare_item()
         return_val = None
-        if compare_result == 1:
+        if self.compare_item() == 1:
             return_val = True
         else:
             return_val = False
@@ -128,9 +128,20 @@ class SortingRobot:
             # st()
             while True:
                 if self.can_move_right():
-                    if self.is_right_smaller():
+                    # if self.is_right_smaller():
+                    #     self.set_light_on()
+                    #     self.swap_with_right()
+                    # self.move_right()
+
+                    self.swap_item()
+                    self.move_right()                    
+                    if self.compare_item() == 1: # right is smaller
                         self.set_light_on()
-                        self.swap_with_right()
+                        self.swap_item()
+
+                    self.move_left()
+                    self.swap_item()
+
                     self.move_right()
 
                 else:
